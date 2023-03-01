@@ -25,13 +25,13 @@ CREATE TABLE
 
 CREATE TABLE
     likes_dislikes (
-        users_id TEXT NOT NULL,
-        posts_id TEXT NOT NULL,
+        user_id TEXT NOT NULL,
+        post_id TEXT NOT NULL,
         like INTEGER NOT NULL,
-        FOREIGN KEY (users_id) REFERENCES users (id)
+        FOREIGN KEY (user_id) REFERENCES users (id)
             ON DELETE CASCADE
             ON UPDATE CASCADE,
-        FOREIGN KEY (posts_id) REFERENCES posts (id)
+        FOREIGN KEY (post_id) REFERENCES posts (id)
             ON DELETE CASCADE
             ON UPDATE CASCADE
     );
@@ -73,7 +73,7 @@ VALUES (
     );
 
 INSERT INTO
-    likes_dislikes (users_id, posts_id, like)
+    likes_dislikes (user_id, post_id, like)
 VALUES ("u001", "p002", 1), ("u002", "p001", 1), ("u001", "p003", 1), ("u002", "p004", 0);
 
 UPDATE posts
